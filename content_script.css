@@ -1,15 +1,14 @@
 #loading {
-  display: table;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #fff;
-  opacity: 0.8;
-}
-
-#loading .loadingMsg {
-  text-align: center;
-  line-height: 400px;
+  background-color: #000;
+  opacity: 0.80;
+  z-index: 1000;
+  color: #fff;
 }

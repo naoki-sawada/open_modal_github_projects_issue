@@ -1,21 +1,22 @@
 $(document).on("click", ".issue-card a", function(e) {
   var url = e.target.href;
   if ( url.indexOf('/issues/') != -1 || url.indexOf('/pull/') != -1 ) {
-    dispLoading("少々お待ちを〜");
+    dispLoading("Loading...");
 
     $.ajax({
       type: "GET",
       url: url,
-
     }).done(function(msg) {
       var html = msg.replace(/<script.*?<\/script>/g, "");
       $.colorbox({
-        width:"1140",
-        height:"85%",
+        width:"1050",
+        height:"80%",
         html:html,
+        opacity: 0.80,
+        transition: "none",
         onComplete: function() {
           removeLoading()
-          var issue_title = $("#cboxLoadedContent .js-issue-title").text();
+          var issue_title = $("#cboxLoadedContent span.js-issue-title").text();
           $("#cboxLoadedContent .Header").remove();
           $("#cboxLoadedContent .pagehead").replaceWith('<div>　</div>');
           $("#cboxLoadedContent a[href$='/issues/new']").remove();
@@ -35,9 +36,9 @@ $(document).on("click", "#cboxLoadedContent a", function(e) {
   return false;
 });
 
-function dispLoading(msg){
-  var dispMsg = "<div class='loadingMsg'>" + msg + "</div>";
-  $("body").append("<div id='loading'><h3>" + dispMsg + "</h3></div>");
+function dispLoading(src){
+  var dispElement = `<h3>${src}</h3>`;
+  $("body").append("<div id='loading'>" + dispElement + "</div>");
 }
 
 function removeLoading(){
