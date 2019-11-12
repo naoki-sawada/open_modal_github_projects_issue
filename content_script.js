@@ -1,6 +1,6 @@
 $(document).on("click", ".issue-card a", function(e) {
   var url = e.target.href;
-  if ( url.indexOf('/issues/') != -1 || url.indexOf('/pull/') != -1 ) {
+  if (!e.metaKey && (url.indexOf('/issues/') != -1 || url.indexOf('/pull/') != -1)) {
     dispLoading("Loading...");
 
     $.ajax({
