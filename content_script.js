@@ -21,8 +21,6 @@ $(document).on("click", ".issue-card a", function(e) {
           $("#cboxLoadedContent .pagehead").replaceWith('<div>　</div>');
           $("#cboxLoadedContent a[href$='/issues/new']").remove();
           $("#cboxLoadedContent .js-issue-title").replaceWith('<a href="'+url+'">'+issue_title+'</a>');
-          $("#cboxLoadedContent .issues-listing").removeAttr("data-pjax");
-          $("#cboxLoadedContent a[data-pjax]").removeAttr("data-pjax");
         }
       });
     });
