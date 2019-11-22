@@ -9,7 +9,7 @@ $(document).on("click", ".issue-card a", function(e) {
     }).done(function(msg) {
       var html = msg.replace(/<script.*?<\/script>/g, "");
       $.colorbox({
-        width:"1050",
+        width:"90%",
         height:"80%",
         html:html,
         opacity: 0.80,
